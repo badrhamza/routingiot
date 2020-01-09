@@ -1,0 +1,21 @@
+{
+	"author": "Badr Hamza",
+	"grid_definition": {
+		"columns_count":2,
+		"rows_count":2
+	},
+	"network_definition": {
+		"nodes": [ 
+				{"name": "T1", "type": "Terminal", "processing_latence":0, "constructor": "DELL", "position":0}, 
+				{"name": "R1", "type": "Router", "processing_latence":10, "constructor": "Cisco", "position":1},
+				{"name": "R2", "type": "Router", "processing_latence":15, "constructor": "Cisco", "position":2},
+				{"name": "T2", "type": "Terminal", "processing_latence":0, "constructor": "ASUS", "position":3}
+			],
+		"links": [ 
+				{"type": "Wifi", "speed":10, "unit": "M", "latence": 1, "from": "T1", "to": "R1"}, 
+				{"type": "Serial",  "speed":100, "unit": "M", "latence": 1, "from": "R1", "to": "R2"},
+				{"type": "Ethernet", "speed":10, "unit": "M", "latence": 1, "from": "R2", "to": "T2"},
+				{"type": "Ethernet", "speed":5, "unit": "M", "latence": 1, "from": "R1", "to": "T2"}
+			]
+	}
+}

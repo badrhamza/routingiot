@@ -1,0 +1,36 @@
+{
+	"author": "Badr Hamza",
+	"grid_definition": {
+		"columns_count":6,
+		"rows_count":4
+	},
+	"network_definition": {
+		"nodes": [ 
+				{"name": "PC Badr", "type": "Terminal", "processing_latence":0, "constructor": "DELL", "position":0}, 
+				{"name": "R1", "type": "Router", "processing_latence":10, "constructor": "Cisco", "position":13},
+				{"name": "R2", "type": "Router", "processing_latence":15, "constructor": "Cisco", "position":3},
+				{"name": "Server 1", "type": "Server", "processing_latence":15, "constructor": "DELL", "position":5},
+				{"name": "Imprimante", "type": "Terminal", "processing_latence":0, "constructor": "ASUS", "position":23},
+				{"name": "R3", "type": "Router", "processing_latence":15, "constructor": "Cisco", "position":8},
+				{"name": "R4", "type": "Router", "processing_latence":15, "constructor": "Cisco", "position":22},
+				{"name": "R5", "type": "Router", "processing_latence":15, "constructor": "Cisco", "position":10},
+				{"name": "Server 2", "type": "Server", "processing_latence":15, "constructor": "HP", "position":18},
+				{"name": "Smartphone", "type": "Terminal", "processing_latence":15, "constructor": "HP", "position":11}
+			],
+		"links": [ 
+				{"type": "Ethernet", "speed":10, "unit": "M", "latence": 5, "from": "PC Badr", "to": "R1"}, 
+				{"type": "Ethernet", "speed":10, "unit": "M", "latence": 1, "from": "PC Badr", "to": "R2"}, 
+				{"type": "Serial",  "speed":100, "unit": "M", "latence": 1, "from": "R1", "to": "R3"}, 
+				{"type": "Serial",  "speed":100, "unit": "M", "latence": 10, "from": "R1", "to": "R4"},
+				{"type": "Serial",  "speed":100, "unit": "M", "latence": 1, "from": "R2", "to": "Server 1"},
+				{"type": "Serial",   "speed":10, "unit": "M", "latence": 1, "from": "R3", "to": "R2"},
+				{"type": "Serial",   "speed":10, "unit": "M", "latence": 1, "from": "R3", "to": "R4"}, 
+				{"type": "Fiber",   "speed":10, "unit": "M", "latence": 1, "from": "R3", "to": "R5"}, 
+				{"type": "Serial",  "speed":10, "unit": "M", "latence": 10, "from": "R2", "to": "R5"}, 
+				{"type": "Ethernet", "speed":10, "unit": "M", "latence": 2, "from": "R4", "to": "Imprimante"}, 
+				{"type": "Wifi", "speed":5, "unit": "M", "latence": 1, "from": "R5", "to": "Imprimante"},
+				{"type": "Ethernet", "speed":5, "unit": "M", "latence": 1, "from": "R1", "to": "Server 2"},
+				{"type": "Wifi", "speed":54, "unit": "M", "latence": 2, "from": "R5", "to": "Smartphone"}
+			]
+	}
+}
